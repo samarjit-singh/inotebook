@@ -78,7 +78,7 @@ const Notes = () => {
             <div className="modal-body">
               <form className="my-3">
                 <div className="mb-3">
-                  <label htmlfor="title" className="form-label">
+                  <label htmlFor="title" className="form-label">
                     Title
                   </label>
                   <input
@@ -89,10 +89,12 @@ const Notes = () => {
                     value={note.etitle}
                     aria-describedby="emailHelp"
                     onChange={onChange}
+                    minLength={5}
+                    required
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlfor="description" className="form-label">
+                  <label htmlFor="description" className="form-label">
                     Description
                   </label>
                   <input
@@ -102,10 +104,12 @@ const Notes = () => {
                     name="edescription"
                     value={note.edescription}
                     onChange={onChange}
+                    minLength={5}
+                    required
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlfor="tag" className="form-label">
+                  <label htmlFor="tag" className="form-label">
                     Tag
                   </label>
                   <input
@@ -129,6 +133,9 @@ const Notes = () => {
                 Close
               </button>
               <button
+                disabled={
+                  note.etitle.length < 5 || note.edescription.length < 5
+                }
                 onClick={handleClick}
                 type="button"
                 className="btn btn-primary"
@@ -142,6 +149,9 @@ const Notes = () => {
 
       <div className="row my-3">
         <h2>Your Note</h2>
+        <div className="Container">
+          {notes.length === 0 && "No notes to display"}
+        </div>
         {notes.map((note) => {
           return (
             <Noteitem key={note._id} updateNote={updateNote} note={note} />
