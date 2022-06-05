@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory, useNavigate } from "react-router-dom";
 
-const Signup = () => {
+const Signup = (props) => {
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",
@@ -29,8 +29,9 @@ const Signup = () => {
       // my use history hook was not working so i used navigate
       // history.push("/");
       navigate("/home");
+      props.showAlert("Account Created Successfully", "success");
     } else {
-      alert("Invalid credentials");
+      props.showAlert("Invalid credentials", "danger");
     }
   };
 

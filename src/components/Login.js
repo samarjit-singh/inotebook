@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useHistory, useNavigate } from "react-router-dom";
+
 // const navigate = useNavigate();
 
-const Login = () => {
+const Login = (props) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
 
   // my use history hook was not working so i used navigate
@@ -29,8 +30,9 @@ const Login = () => {
       // my use history hook was not working so i used navigate
       // history.push("/");
       navigate("/home");
+      props.showAlert("Logged in Successfully", "success");
     } else {
-      alert("Invalid credentials");
+      props.showAlert("Invalid details", "danger");
     }
   };
 
