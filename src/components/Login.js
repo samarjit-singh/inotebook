@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // const navigate = useNavigate();
 
@@ -29,8 +29,8 @@ const Login = (props) => {
       localStorage.setItem("token", json.authtoken);
       // my use history hook was not working so i used navigate
       // history.push("/");
-      navigate("/home");
       props.showAlert("Logged in Successfully", "success");
+      navigate("/home");
     } else {
       props.showAlert("Invalid details", "danger");
     }
@@ -42,6 +42,9 @@ const Login = (props) => {
 
   return (
     <div>
+      <div className="mt-3">
+        <h2>Login to continue to iNotebook</h2>
+      </div>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
