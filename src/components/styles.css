@@ -13,3 +13,18 @@
   width: 50rem;
   height: 50rem;
 } */
+
+#banner {
+  filter: brightness(50%);
+}
+
+.carousel-caption {
+  font-size: 30px;
+  top: 63%;
+  transform: translateY(-50%);
+}
+
+.card{
+  margin-top: 2rem;
+  /* padding-top: 5rem; */
+}
