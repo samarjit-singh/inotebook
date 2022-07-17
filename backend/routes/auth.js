@@ -2,7 +2,7 @@ const express = require("express");
 const User = require("../models/User");
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcryptjs"); //hashing and salitng
 var jwt = require("jsonwebtoken");
 var fetchuser = require("../middleware/fetchuser");
 
