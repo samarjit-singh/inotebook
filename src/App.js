@@ -25,6 +25,7 @@ function App() {
           <Alert alert={alert} />
           <div className="container">
             <Routes>
+              <Route path="/" element={<Home showAlert={showAlert} />} />
               <Route path="/home" element={<Home showAlert={showAlert} />} />
               <Route path="/about" element={<About />} />
               <Route path="/login" element={<Login showAlert={showAlert} />} />
