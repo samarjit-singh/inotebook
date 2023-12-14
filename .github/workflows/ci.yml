@@ -1,0 +1,30 @@
+name: Continuous Integration Workfolow
+
+# This workflow is triggered whenever a new PR is created on the main branch
+
+on:
+  pull_request:
+    branches: -main
+
+default:
+  run:
+    shell: bash
+    # define the working directory for all run steps in the workflow
+    working-directory: "../backend"
+
+jobs:
+  # Run unit tests to make sure everything is 👍
+  test:
+    name: "Run unit tests"
+    # specify the os we want the workflow to run on
+    runs-on: windows-latest
+    # Define the steps for this job
+    steps:
+      - uses: actions/checkout@v2
+        name: "Checkout repository"
+
+      - name: "Install Dependencies"
+        run: npm install
+
+      - name: "Run Tests"
+        run: npm run test
